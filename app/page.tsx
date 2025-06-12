@@ -1,119 +1,35 @@
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-
-export default function ConfigToolMockup() {
+export default function Home() {
   return (
-    <div className="p-6 space-y-6">
-      <h1 className="text-3xl font-bold">SynergySky Config Portal (Figmoc)</h1>
+    <div className="p-6 space-y-6 font-sans">
+      <h1 className="text-3xl font-bold text-sky-800">SynergySky Config Portal (Figmoc)</h1>
 
-      <Tabs defaultValue="dashboard" className="space-y-4">
-        <TabsList>
-          <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
-          <TabsTrigger value="setup">Setup Wizard</TabsTrigger>
-          <TabsTrigger value="config">Configuration</TabsTrigger>
-          <TabsTrigger value="rooms">Room Overview</TabsTrigger>
-          <TabsTrigger value="logs">Logs</TabsTrigger>
-          <TabsTrigger value="admin">Admin</TabsTrigger>
-        </TabsList>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="border rounded-xl p-4 shadow">
+          <h2 className="text-xl font-semibold mb-2">System Overview</h2>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Microsoft Graph: <strong className="text-green-600">Connected</strong></li>
+            <li>Webex API: <strong className="text-red-600">Not Connected</strong></li>
+            <li>Rooms Configured: 4 / 10</li>
+          </ul>
+        </div>
 
-        <TabsContent value="dashboard">
-          <Card>
-            <CardContent className="p-4">
-              <h2 className="text-xl font-semibold mb-2">System Overview</h2>
-              <p>Microsoft Graph: Connected</p>
-              <p>Webex API: Not Connected</p>
-              <p>Rooms Configured: 4 / 10</p>
-            </CardContent>
-          </Card>
-        </TabsContent>
+        <div className="border rounded-xl p-4 shadow">
+          <h2 className="text-xl font-semibold mb-2">Setup Wizard</h2>
+          <button className="bg-sky-600 text-white px-4 py-2 rounded mr-2">Connect Microsoft 365</button>
+          <button className="bg-sky-600 text-white px-4 py-2 rounded mr-2">Connect Webex</button>
+          <button className="bg-sky-600 text-white px-4 py-2 rounded">Discover Rooms</button>
+        </div>
 
-        <TabsContent value="setup">
-          <Card>
-            <CardContent className="space-y-4">
-              <h2 className="text-xl font-semibold">Setup Wizard</h2>
-              <div>
-                <Label>Connect Microsoft 365</Label>
-                <Button className="ml-2">Connect</Button>
-              </div>
-              <div>
-                <Label>Connect Webex API</Label>
-                <Button className="ml-2">Connect</Button>
-              </div>
-              <div>
-                <Label>Discover Rooms</Label>
-                <Button className="ml-2">Run Discovery</Button>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="config">
-          <Card>
-            <CardContent className="space-y-4">
-              <h2 className="text-xl font-semibold">Configuration</h2>
-              <div>
-                <Label>Enable OBTP</Label>
-                <Button className="ml-2">Configure</Button>
-              </div>
-              <div>
-                <Label>Enable Connect GO</Label>
-                <Button className="ml-2">Configure</Button>
-              </div>
-              <div>
-                <Label>Enable Lobby Auto Admit</Label>
-                <Button className="ml-2">Configure</Button>
-              </div>
-              <div>
-                <Label>Enable Join by ID</Label>
-                <Button className="ml-2">Configure</Button>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="rooms">
-          <Card>
-            <CardContent>
-              <h2 className="text-xl font-semibold mb-4">Room Overview</h2>
-              <p>Room 1: OBTP ✅, Connect GO ✅</p>
-              <p>Room 2: OBTP ❌, Connect GO ✅</p>
-              <p>Room 3: OBTP ✅, Lobby Auto Admit ✅</p>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="logs">
-          <Card>
-            <CardContent>
-              <h2 className="text-xl font-semibold mb-2">Logs & Monitoring</h2>
-              <p>[10:24] Graph connected successfully.</p>
-              <p>[10:25] Webex connection failed: Invalid credentials.</p>
-              <p>[10:30] OBTP configured for Room 1.</p>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="admin">
-          <Card>
-            <CardContent className="space-y-4">
-              <h2 className="text-xl font-semibold">Admin Settings</h2>
-              <div>
-                <Label>Tenant ID</Label>
-                <Input placeholder="Enter Tenant ID" />
-              </div>
-              <div>
-                <Label>Webex Credentials</Label>
-                <Input placeholder="Enter API Key" />
-              </div>
-              <Button>Save</Button>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+        <div className="border rounded-xl p-4 shadow col-span-2">
+          <h2 className="text-xl font-semibold mb-2">Configure Features</h2>
+          <div className="flex flex-wrap gap-2">
+            <button className="bg-gray-100 border px-4 py-2 rounded">Configure OBTP</button>
+            <button className="bg-gray-100 border px-4 py-2 rounded">Configure Connect GO</button>
+            <button className="bg-gray-100 border px-4 py-2 rounded">Configure Lobby Auto Admit</button>
+            <button className="bg-gray-100 border px-4 py-2 rounded">Configure Join by ID</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
